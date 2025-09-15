@@ -1,692 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>$GROUK - The Ultimate Meme Revolution! 🚀</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>$GROUK — Solana’s Monster Comeback</title>
+  <meta name="description" content="$GROUK — 1B fixed supply on Solana. 70% bonding curve, 20% Raydium LP, 10% team vested. 0% tax. Community‑first." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0a0b0e;
+      --bg-soft:#0f1117;
+      --gold:#F2C94C;
+      --amber:#F2994A;
+      --rose:#EB5757;
+      --mint:#34D399;
+      --text:#e8ebf0;
+      --muted:#9aa3b2;
+      --ring: 0 0 0 1px rgba(255,255,255,.08), 0 10px 40px rgba(242,201,76,.15);
+      --glass: rgba(255,255,255,.06);
+      --border: rgba(255,255,255,.14);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',sans-serif; color:var(--text); background: var(--bg);
+      background-image: radial-gradient(1200px 600px at 50% -200px, rgba(242,153,74,.25), transparent),
+                        radial-gradient(900px 600px at -20% 20%, rgba(235,87,87,.18), transparent),
+                        radial-gradient(900px 600px at 120% 20%, rgba(242,201,76,.12), transparent);
+      overflow-x:hidden;
+    }
+    .container{max-width:1200px;margin:0 auto;padding:0 22px}
+    /* ===== NAV ===== */
+    .nav{position:fixed;inset-inline:0;top:0;z-index:50;background:rgba(10,11,14,.45);backdrop-filter: blur(14px);border-bottom:1px solid var(--border)}
+    .nav-wrap{height:68px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--text)}
+    .brand .title{font-weight:800;letter-spacing:.4px}
+    .nav a.link{color:var(--muted);text-decoration:none;margin-left:22px;font-weight:600}
+    .nav a.link:hover{color:var(--text)}
+    .cta{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;font-weight:700;border:1px solid rgba(255,255,255,.16);background:linear-gradient(90deg,var(--gold),var(--amber),var(--rose));background-size:200% 100%;color:#111;box-shadow:var(--ring);text-decoration:none}
+    .cta:hover{filter:saturate(1.1); transform:translateY(-1px)}
+    /* ===== HERO ===== */
+    .hero{padding-top:120px;position:relative;overflow:hidden}
+    .grid{display:grid;grid-template-columns:1.15fr .85fr; gap:40px; align-items:center}
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.25);color:#d1fae5;font-weight:700;font-size:12px}
+    .h1{font-size:clamp(42px,6vw,76px);line-height:1.03;margin:14px 0 10px;font-weight:900;letter-spacing:-.02em}
+    .gradient{background:linear-gradient(90deg,#fdf6b2,#f2c94c,#f2994a,#eb5757);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .lead{color:var(--muted);font-size:18px;max-width:640px}
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:var(--glass);color:var(--text);text-decoration:none;font-weight:700}
+    .btn:hover{background:rgba(255,255,255,.12)}
+    .copy{border-color:rgba(52,211,153,.4);background:rgba(52,211,153,.1);color:#c7ffe1}
+    .frame{position:relative;border:1px solid var(--border);background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));border-radius:28px;padding:24px;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+    .frame:before{content:"";position:absolute;inset:-1px;border-radius:28px;padding:1px;background:linear-gradient(120deg,rgba(242,201,76,.6),rgba(242,153,74,.35),rgba(235,87,87,.35));-webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite: exclude}
+    .stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:16px}
+    .stat{background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:16px;padding:12px 14px}
+    .stat .k{color:var(--muted);font-size:12px}
+    .stat .v{font-weight:800;font-size:18px}
+    .hero-logo{display:flex;align-items:center;justify-content:center}
+    .logo-card{position:relative;isolation:isolate}
+    .glow{position:absolute;inset:-30px;z-index:-1;filter: blur(40px); background: radial-gradient(400px 220px at 50% 50%, rgba(242,201,76,.32), transparent 60%)}
+    .logo{width:min(460px,88%);height:auto;display:block;border-radius:22px}
 
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background: linear-gradient(135deg, #FF8C00 0%, #FFD700 50%, #FFA500 100%);
-            color: white;
-            overflow-x: hidden;
-        }
+    /* ===== MARQUEE ===== */
+    .marquee{border-block:1px solid var(--border);background:rgba(255,255,255,.04);padding:10px 0;overflow:hidden}
+    .marquee .row{display:flex;gap:32px;white-space:nowrap;animation:slide 26s linear infinite}
+    @keyframes slide{to{transform:translateX(-50%)}}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    /* ===== SECTIONS ===== */
+    section{padding:72px 0}
+    .title{font-size:36px;font-weight:900;margin-bottom:10px}
+    .sub{color:var(--muted);max-width:760px}
 
-        /* Animated background particles */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
+    .cards{margin-top:28px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .card{background:var(--glass);border:1px solid var(--border);border-radius:22px;padding:22px}
+    .card h3{margin:0 0 6px;font-size:18px}
 
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.4);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
+    /* Tokenomics */
+    .tgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:22px}
+    .t{background:var(--glass);border:1px solid var(--border);border-radius:18px;padding:18px;text-align:center}
+    .t h4{font-size:28px;margin:4px 0 4px}
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            33% { transform: translateY(-20px) rotate(120deg); }
-            66% { transform: translateY(20px) rotate(240deg); }
-        }
+    /* Footer */
+    footer{border-top:1px solid var(--border);background:rgba(0,0,0,.45);backdrop-filter: blur(10px);padding:40px 0}
+    .social{display:flex;gap:12px;margin-top:8px}
+    .social a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:12px;background:var(--glass);border:1px solid var(--border);color:var(--text);text-decoration:none}
+    .social a:hover{background:rgba(255,255,255,.12)}
 
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(15px);
-            z-index: 1000;
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255, 165, 0, 0.3);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 32px;
-            font-weight: 900;
-            background: linear-gradient(45deg, #FFD700, #FF8C00, #FFD700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
-            letter-spacing: -2px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: #FFD700;
-            transform: translateY(-2px);
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            text-align: center;
-            z-index: 10;
-        }
-
-        .hero h1 {
-            font-size: 5rem;
-            font-weight: 900;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, #FFD700, #FF8C00, #FFD700, #FFA500);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: glow 2s ease-in-out infinite alternate;
-            letter-spacing: -3px;
-            text-shadow: 0 0 50px rgba(255, 140, 0, 0.5);
-        }
-
-        @keyframes glow {
-            from { filter: drop-shadow(0 0 20px rgba(255, 140, 0, 0.6)); }
-            to { filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.9)); }
-        }
-
-        .hero .tagline {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            font-weight: 700;
-            color: #FFFFFF;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-        }
-
-        .hero p {
-            font-size: 1.4rem;
-            margin-bottom: 40px;
-            color: #FFFFFF;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 18px 35px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(45deg, #FFD700, #FF8C00);
-            color: #000;
-            box-shadow: 0 15px 35px rgba(255, 140, 0, 0.4);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 50px rgba(255, 140, 0, 0.6);
-        }
-
-        .btn-secondary {
-            background: rgba(0, 0, 0, 0.8);
-            color: #FFD700;
-            border: 3px solid #FFD700;
-        }
-
-        .btn-secondary:hover {
-            background: #FFD700;
-            color: #000;
-            transform: translateY(-4px);
-        }
-
-        /* Floating coin animation */
-        .floating-coin {
-            position: absolute;
-            font-size: 4rem;
-            opacity: 0.15;
-            animation: floatCoin 4s ease-in-out infinite;
-        }
-
-        @keyframes floatCoin {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(180deg); }
-        }
-
-        /* Sections */
-        .section {
-            padding: 100px 0;
-            position: relative;
-        }
-
-        .section-alt {
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-        }
-
-        .section h2 {
-            text-align: center;
-            font-size: 3.5rem;
-            margin-bottom: 60px;
-            background: linear-gradient(45deg, #FFD700, #FF8C00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 900;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .feature-card {
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(15px);
-            border-radius: 25px;
-            padding: 40px;
-            text-align: center;
-            transition: all 0.4s ease;
-            border: 2px solid rgba(255, 215, 0, 0.4);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-15px);
-            background: rgba(0, 0, 0, 0.9);
-            box-shadow: 0 25px 60px rgba(255, 140, 0, 0.3);
-            border-color: rgba(255, 215, 0, 0.8);
-        }
-
-        .feature-icon {
-            font-size: 4rem;
-            margin-bottom: 25px;
-            display: block;
-        }
-
-        .feature-card h3 {
-            color: #FFD700;
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .feature-card p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #FFFFFF;
-            font-weight: 500;
-        }
-
-        .tokenomics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .token-stat {
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(15px);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            border: 2px solid rgba(255, 140, 0, 0.6);
-            transition: all 0.3s ease;
-        }
-
-        .token-stat:hover {
-            transform: scale(1.05);
-            border-color: #FFD700;
-            background: rgba(0, 0, 0, 0.9);
-        }
-
-        .token-stat h3 {
-            color: #FFD700;
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            font-weight: 900;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-
-        .token-stat p {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #FFFFFF;
-        }
-
-        .tokenomics-intro {
-            text-align: center;
-            font-size: 1.3rem;
-            margin-bottom: 40px;
-            background: rgba(0, 0, 0, 0.8);
-            color: #FFFFFF;
-            font-weight: 700;
-            padding: 20px 30px;
-            border-radius: 15px;
-            display: inline-block;
-            border: 2px solid #FFD700;
-        }
-
-        /* Footer */
-        footer {
-            background: rgba(0, 0, 0, 0.9);
-            padding: 60px 0;
-            text-align: center;
-            backdrop-filter: blur(15px);
-        }
-
-        footer h2 {
-            color: #FFD700;
-            margin-bottom: 20px;
-        }
-
-        footer p {
-            color: #FFFFFF;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-
-        .social-links a {
-            display: inline-block;
-            width: 60px;
-            height: 60px;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1.8rem;
-            border: 2px solid rgba(255, 140, 0, 0.6);
-        }
-
-        .social-links a:hover {
-            background: linear-gradient(45deg, #FFD700, #FF8C00);
-            color: #000;
-            transform: scale(1.2);
-            border-color: #FFD700;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 3rem; }
-            .hero .tagline { font-size: 1.4rem; }
-            .hero p { font-size: 1.1rem; }
-            .section h2 { font-size: 2.5rem; }
-            .nav-links { display: none; }
-            .features { grid-template-columns: 1fr; }
-        }
-
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .supply-highlight {
-            background: linear-gradient(45deg, #FFD700, #FF8C00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 900;
-            font-size: 1.3em;
-        }
-    </style>
+    /* Responsive */
+    @media (max-width:980px){.grid{grid-template-columns:1fr;gap:26px}.cards{grid-template-columns:1fr 1fr}.tgrid{grid-template-columns:1fr 1fr}}
+    @media (max-width:640px){.cards{grid-template-columns:1fr}.tgrid{grid-template-columns:1fr}.nav a.link{display:none}}
+  </style>
 </head>
 <body>
-    <!-- Animated background -->
-    <div class="particles" id="particles"></div>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top">
+        <!-- PLACE YOUR LOGO PNG PATH BELOW -->
+        <img src="assets/grouk-logo.png" alt="GROUK logo" width="40" height="40" style="display:block"/>
+        <span class="title">$GROUK</span>
+      </a>
+      <div>
+        <a class="link" href="#tokenomics">Tokenomics</a>
+        <a class="link" href="#how">How to buy</a>
+        <a class="link" href="#proofs">Proofs</a>
+        <a class="cta" href="https://raydium.io/" target="_blank" rel="noopener">Buy on Raydium →</a>
+      </div>
+    </div>
+  </div>
 
-    <!-- Header -->
-    <header>
-        <nav class="container">
-            <div class="logo">🔥 $GROUK</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#tokenomics">Tokenomics</a></li>
-                <li><a href="#roadmap">Roadmap</a></li>
-                <li><a href="#contact">Join Us</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>$GROUK</h1>
-                <div class="tagline">The Ultimate Meme Revolution!</div>
-                <p>Limited supply, unlimited potential! Join the <span class="supply-highlight">21 Million</span> revolution that's taking the crypto world by storm. GROUK isn't just a meme - it's a movement!</p>
-                <div class="cta-buttons">
-                    <a href="#tokenomics" class="btn btn-primary">Buy $GROUK</a>
-                    <a href="#about" class="btn btn-secondary">Learn More</a>
-                </div>
-            </div>
-            <div class="floating-coin" style="top: 15%; left: 8%;">🚀</div>
-            <div class="floating-coin" style="top: 70%; right: 12%; animation-delay: -2s;">💎</div>
-            <div class="floating-coin" style="bottom: 25%; left: 15%; animation-delay: -1s;">🔥</div>
-            <div class="floating-coin" style="top: 40%; right: 5%; animation-delay: -3s;">⚡</div>
+  <!-- HERO -->
+  <section id="top" class="hero">
+    <div class="container grid">
+      <div>
+        <span class="badge"><span style="width:8px;height:8px;border-radius:999px;background:#34D399;display:inline-block"></span> Live soon • 0% Tax • 1B Supply</span>
+        <h1 class="h1">Solana’s <span class="gradient">Monster Comeback</span></h1>
+        <p class="lead">$GROUK is a clean, transparent SPL token built for traders. <b>1,000,000,000</b> fixed supply. <b>70%</b> via bonding curve, <b>20%</b> to Raydium LP, <b>10%</b> team vested. No taxes. Community first.</p>
+        <div class="actions">
+          <a class="cta" href="https://raydium.io/" target="_blank" rel="noopener">Enter Launch ↗</a>
+          <a class="btn" href="#proofs">View proofs</a>
+          <button class="btn copy" id="copyCA">Copy Contract</button>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section section-alt">
-        <div class="container">
-            <h2 class="fade-in">Why $GROUK?</h2>
-            <div class="features">
-                <div class="feature-card fade-in">
-                    <span class="feature-icon">⚡</span>
-                    <h3>Lightning Fast</h3>
-                    <p>Built on cutting-edge blockchain technology for instant transactions and minimal fees. GROUK moves at the speed of memes!</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <span class="feature-icon">💎</span>
-                    <h3>Diamond Hands Rewards</h3>
-                    <p>Hold $GROUK and earn exclusive rewards! Our community-driven tokenomics reward loyal holders with special perks and governance rights.</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <span class="feature-icon">🔥</span>
-                    <h3>Deflationary Beast</h3>
-                    <p>With only <strong>21 Million</strong> total supply and auto-burn mechanics, $GROUK becomes scarcer and more valuable over time!</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <span class="feature-icon">🌟</span>
-                    <h3>Community Driven</h3>
-                    <p>Join thousands of GROUK believers! Our vibrant community shapes the future through memes, votes, and pure diamond-handed energy.</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <span class="feature-icon">🚀</span>
-                    <h3>Moon Mission</h3>
-                    <p>We're not just going to the moon - we're building a rocket ship! Aggressive marketing and strategic partnerships fuel our ascent.</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <span class="feature-icon">🛡️</span>
-                    <h3>Rug-Proof Security</h3>
-                    <p>Liquidity locked, contract audited, and team tokens vested. Sleep easy knowing your $GROUK investment is protected by iron-clad security.</p>
-                </div>
-            </div>
+        <div class="stats">
+          <div class="stat"><div class="k">Raise target</div><div class="v">10,000 SOL</div></div>
+          <div class="stat"><div class="k">Decimals</div><div class="v">9</div></div>
+          <div class="stat"><div class="k">Chain</div><div class="v">Solana</div></div>
+          <div class="stat"><div class="k">Ticker</div><div class="v">$GROUK</div></div>
         </div>
-    </section>
-
-    <!-- Tokenomics Section -->
-    <section id="tokenomics" class="section">
-        <div class="container">
-            <h2 class="fade-in">Tokenomics</h2>
-            <div class="tokenomics-intro fade-in">
-                <strong>Total Supply: 21 Million $GROUK</strong> - Inspired by Bitcoin's scarcity model!
-            </div>
-            <div class="tokenomics">
-                <div class="token-stat fade-in">
-                    <h3>21M</h3>
-                    <p>Total Supply</p>
-                </div>
-                <div class="token-stat fade-in">
-                    <h3>40%</h3>
-                    <p>Public Sale</p>
-                </div>
-                <div class="token-stat fade-in">
-                    <h3>25%</h3>
-                    <p>Liquidity Pool</p>
-                </div>
-                <div class="token-stat fade-in">
-                    <h3>15%</h3>
-                    <p>Marketing & Growth</p>
-                </div>
-                <div class="token-stat fade-in">
-                    <h3>10%</h3>
-                    <p>Team (Vested)</p>
-                </div>
-                <div class="token-stat fade-in">
-                    <h3>5%</h3>
-                    <p>Community Rewards</p>
-                </div>
-                <div class="token-stat fade-in">
-                    <h3>3%</h3>
-                    <p>Development</p>
-                </div>
-                <div class="token-stat fade-in">
-                    <h3>2%</h3>
-                    <p>Auto-Burn</p>
-                </div>
-            </div>
+      </div>
+      <div class="hero-logo">
+        <div class="logo-card">
+          <div class="glow"></div>
+          <!-- PLACE YOUR LOGO PNG PATH BELOW  -->
+          <img class="logo" src="assets/grouk-logo.png" alt="GROUK" />
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Roadmap Section -->
-    <section id="roadmap" class="section section-alt">
-        <div class="container">
-            <h2 class="fade-in">Roadmap to Mars</h2>
-            <div class="features">
-                <div class="feature-card fade-in">
-                    <span class="feature-icon">🚀</span>
-                    <h3>Phase 1: Launch (LIVE NOW!)</h3>
-                    <p><strong style="color: #00FF00;">Q4 2025 - Q1 2026</strong><br>
-                    • Fair launch on DEX ✅<br>
-                    • Community building (10K+ members)<br>
-                    • Initial marketing campaigns<br>
-                    • First burn events</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <span class="feature-icon">📈</span>
-                    <h3>Phase 2: Growth</h3>
-                    <p><strong style="color: #FFD700;">Q2 - Q3 2026</strong><br>
-                    • CoinGecko & CoinMarketCap listings<br>
-                    • Major influencer partnerships<br>
-                    • CEX listings (Tier 2)<br>
-                    • NFT collection drop</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <span class="feature-icon">🌍</span>
-                    <h3>Phase 3: Expansion</h3>
-                    <p><strong style="color: #FFD700;">Q4 2026 - Q1 2027</strong><br>
-                    • Top-tier exchange listings<br>
-                    • Mobile app launch<br>
-                    • Merchandise store<br>
-                    • Gaming integration</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <span class="feature-icon">👑</span>
-                    <h3>Phase 4: Domination</h3>
-                    <p><strong style="color: #FFD700;">Q2 2027+</strong><br>
-                    • Metaverse integration<br>
-                    • Cross-chain bridges<br>
-                    • $GROUK ecosystem<br>
-                    • Global meme supremacy!</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="container">
+      <div class="row">
+        <span>0% TAX</span><span>1B FIXED SUPPLY</span><span>RAYDIUM LP</span><span>VESTED TEAM</span><span>COMMUNITY FIRST</span>
+        <span>0% TAX</span><span>1B FIXED SUPPLY</span><span>RAYDIUM LP</span><span>VESTED TEAM</span><span>COMMUNITY FIRST</span>
+      </div>
+    </div>
+  </div>
 
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <h2>Join the $GROUK Army!</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 30px;">Be part of the revolution. Diamond hands only! 💎🙌</p>
-            <div class="social-links">
-                <a href="https://x.com/GroukCoin" target="_blank" title="Twitter/X">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                </a>
-                <a href="https://t.me/GroukCommunity" target="_blank" title="Telegram">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-                    </svg>
-                </a>
-                <a href="#" title="Discord">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419-.0188 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1568 2.4189Z"/>
-                    </svg>
-                </a>
-                <a href="#" title="Reddit">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
-                    </svg>
-                </a>
-            </div>
-            <p style="margin-top: 20px; opacity: 0.8;">&copy; 2025 $GROUK. All rights reserved. | DYOR - Not Financial Advice | Contract: [TBA]</p>
-            <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.6;">
-                <strong>Disclaimer:</strong> $GROUK is a meme token created for entertainment. Crypto investments are risky - only invest what you can afford to lose!
-            </p>
-        </div>
-    </footer>
+  <!-- WHY / FEATURES -->
+  <section>
+    <div class="container">
+      <div class="title">Why $GROUK?</div>
+      <div class="sub">Fast finality, deep liquidity, and disciplined tokenomics. Designed to trade clean, grow strong, and stay transparent.</div>
+      <div class="cards">
+        <div class="card"><h3>Built on Solana</h3><div class="sub">Low fees + high throughput — perfect rails for real traders.</div></div>
+        <div class="card"><h3>Fair Discovery</h3><div class="sub">70% supply through bonding curve; market sets the price.</div></div>
+        <div class="card"><h3>Strong Liquidity</h3><div class="sub">20% supply migrates to Raydium LP on completion.</div></div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Create floating particles
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            for (let i = 0; i < 60; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 6 + 's';
-                particlesContainer.appendChild(particle);
-            }
-        }
+  <!-- TOKENOMICS -->
+  <section id="tokenomics">
+    <div class="container">
+      <div class="title">Tokenomics</div>
+      <div class="sub">Total supply <b>1,000,000,000</b> $GROUK • Target raise <b>10,000 SOL</b></div>
+      <div class="tgrid">
+        <div class="t"><div>Allocation</div><h4>70%</h4><div>Bonding Curve (700M)</div></div>
+        <div class="t"><div>Liquidity</div><h4>20%</h4><div>Raydium LP (200M)</div></div>
+        <div class="t"><div>Team</div><h4>10%</h4><div>6‑month vest (100M)</div></div>
+        <div class="t"><div>Decimals</div><h4>9</h4><div>SPL standard</div></div>
+      </div>
+    </div>
+  </section>
 
-        // Scroll animations
-        function handleScrollAnimations() {
-            const elements = document.querySelectorAll('.fade-in');
-            elements.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 100) {
-                    el.classList.add('visible');
-                }
-            });
-        }
+  <!-- PROOFS -->
+  <section id="proofs">
+    <div class="container">
+      <div class="title">Proofs & Links</div>
+      <div class="cards">
+        <div class="card"><h3>Mint Address</h3><div class="sub" id="mintAddr">TBA after launch</div></div>
+        <div class="card"><h3>Raydium Pair</h3><div class="sub"><a href="#" id="rayLink">Coming soon</a></div></div>
+        <div class="card"><h3>LP / Vesting</h3><div class="sub">Lock & vesting tx links will be posted here for transparency.</div></div>
+      </div>
+    </div>
+  </section>
 
-        // Smooth scrolling
-        function smoothScroll() {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-        }
+  <!-- HOW TO BUY -->
+  <section id="how">
+    <div class="container">
+      <div class="title">How to Buy</div>
+      <div class="cards">
+        <div class="card"><h3>1) Get SOL</h3><div class="sub">Fund Phantom/Solflare with a little SOL for gas.</div></div>
+        <div class="card"><h3>2) Open Raydium</h3><div class="sub">Use the official GROUK pair when we post it here.</div></div>
+        <div class="card"><h3>3) Verify</h3><div class="sub">Always verify the mint address before trading.</div></div>
+      </div>
+    </div>
+  </section>
 
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            createParticles();
-            smoothScroll();
-            handleScrollAnimations();
-        });
+  <footer>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <div>© <span id="yr"></span> GROUK • DYOR • Not financial advice</div>
+      <div class="social">
+        <a href="https://x.com/TheCryptoIntelX" target="_blank" aria-label="X">X</a>
+        <a href="https://t.me/GroukCommunity" target="_blank" aria-label="Telegram">TG</a>
+      </div>
+    </div>
+  </footer>
 
-        window.addEventListener('scroll', handleScrollAnimations);
-
-        // Add some interactive effects
-        document.addEventListener('mousemove', function(e) {
-            const cursor = e.clientX / window.innerWidth;
-            const particles = document.querySelectorAll('.particle');
-            particles.forEach((particle, index) => {
-                if (index % 4 === 0) {
-                    particle.style.transform = `translateX(${cursor * 25}px)`;
-                }
-            });
-        });
-
-        // Add click effects
-        document.addEventListener('click', function(e) {
-            const ripple = document.createElement('div');
-            ripple.style.position = 'fixed';
-            ripple.style.borderRadius = '50%';
-            ripple.style.background = 'rgba(255, 215, 0, 0.3)';
-            ripple.style.transform = 'scale(0)';
-            ripple.style.animation = 'ripple 0.6s linear';
-            ripple.style.left = (e.clientX - 25) + 'px';
-            ripple.style.top = (e.clientY - 25) + 'px';
-            ripple.style.width = '50px';
-            ripple.style.height = '50px';
-            ripple.style.pointerEvents = 'none';
-            document.body.appendChild(ripple);
-
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
-        });
-
-        // Add ripple animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
+  <script>
+    // year
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    // Copy CA handler
+    const CA = 'MintAddress_TBA'; // replace after launch
+    document.getElementById('copyCA').addEventListener('click',()=>{
+      navigator.clipboard.writeText(CA).then(()=>{
+        const b = document.getElementById('copyCA');
+        const old = b.textContent; b.textContent = 'Copied!'; setTimeout(()=> b.textContent = old, 1200);
+      })
+    });
+  </script>
 </body>
 </html>
+
