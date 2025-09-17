@@ -3,187 +3,218 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>$GROUK — BNB Smart ChainMonster Comeback</title>
+  <title>$GROUK — BSC’s Monster Comeback</title>
+  <meta name="description" content="$GROUK on BNB Smart Chain: 1B fixed supply • 70% public sale • 20% PancakeSwap LP • 10% vested team • 0% tax." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0a0b0e;
-      --bg-soft:#0f1117;
-      --gold:#F2C94C;
-      --amber:#F2994A;
-      --rose:#EB5757;
-      --mint:#34D399;
-      --text:#e8ebf0;
-      --muted:#9aa3b2;
-      --ring: 0 0 0 1px rgba(255,255,255,.08), 0 10px 40px rgba(242,201,76,.15);
-      --glass: rgba(255,255,255,.06);
+      --bg:#0a0b0e; --bg-soft:#0f1117; --text:#e8ebf0; --muted:#9aa3b2;
+      --gold:#F2C94C; --amber:#F2994A; --rose:#EB5757;
       --border: rgba(255,255,255,.14);
+      --ring: 0 0 0 1px rgba(255,255,255,.08), 0 10px 40px rgba(242,201,76,.15);
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
+    *{box-sizing:border-box} html,body{height:100%}
     body{
-      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',sans-serif; color:var(--text); background: var(--bg);
-      background-image: radial-gradient(1200px 600px at 50% -200px, rgba(242,153,74,.25), transparent),
-                        radial-gradient(900px 600px at -20% 20%, rgba(235,87,87,.18), transparent),
-                        radial-gradient(900px 600px at 120% 20%, rgba(242,201,76,.12), transparent);
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, 'Helvetica Neue', sans-serif; color:var(--text);
+      background:#0a0b0e;
+      background-image:
+        radial-gradient(1200px 600px at 50% -200px, rgba(242,153,74,.18), transparent),
+        radial-gradient(900px 600px at -20% 20%, rgba(235,87,87,.12), transparent),
+        radial-gradient(900px 600px at 120% 20%, rgba(242,201,76,.10), transparent);
       overflow-x:hidden;
     }
     .container{max-width:1200px;margin:0 auto;padding:0 22px}
-    .nav{position:fixed;inset-inline:0;top:0;z-index:50;background:rgba(10,11,14,.45);backdrop-filter: blur(14px);border-bottom:1px solid var(--border)}
+
+    /* Nav */
+    .nav{position:fixed;inset-inline:0;top:0;z-index:50;background:rgba(10,11,14,.55);backdrop-filter: blur(14px);border-bottom:1px solid var(--border)}
     .nav-wrap{height:68px;display:flex;align-items:center;justify-content:space-between}
     .brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--text)}
-    .brand .title{font-weight:800;letter-spacing:.4px}
+    .brand .title{font-weight:800;letter-spacing:.3px}
     .nav a.link{color:var(--muted);text-decoration:none;margin-left:22px;font-weight:600}
     .nav a.link:hover{color:var(--text)}
-    .cta{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;font-weight:700;border:1px solid rgba(255,255,255,.16);background:linear-gradient(90deg,var(--gold),var(--amber),var(--rose));background-size:200% 100%;color:#111;box-shadow:var(--ring);text-decoration:none}
-    .cta:hover{filter:saturate(1.1); transform:translateY(-1px)}
-    .hero{padding-top:120px;position:relative;overflow:hidden}
-    .grid{display:grid;grid-template-columns:1.15fr .85fr; gap:40px; align-items:center}
-    .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.25);color:#d1fae5;font-weight:700;font-size:12px}
+    .cta{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;font-weight:800;border:1px solid rgba(255,255,255,.16);
+      background:linear-gradient(90deg,#F2C94C,#F2994A,#EB5757); background-size:200% 100%; color:#111; box-shadow:var(--ring); text-decoration:none}
+    .cta:hover{filter:saturate(1.06); transform:translateY(-1px)}
+
+    /* Hero */
+    .hero{padding-top:120px;position:relative}
+    .grid{display:grid;grid-template-columns:1.1fr .9fr; gap:40px; align-items:center}
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.25);color:#d1fae5;font-weight:800;font-size:12px}
     .h1{font-size:clamp(42px,6vw,76px);line-height:1.03;margin:14px 0 10px;font-weight:900;letter-spacing:-.02em}
     .gradient{background:linear-gradient(90deg,#fdf6b2,#f2c94c,#f2994a,#eb5757);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
     .lead{color:var(--muted);font-size:18px;max-width:640px}
     .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:var(--glass);color:var(--text);text-decoration:none;font-weight:700}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:var(--text);text-decoration:none;font-weight:800}
     .btn:hover{background:rgba(255,255,255,.12)}
     .copy{border-color:rgba(52,211,153,.4);background:rgba(52,211,153,.1);color:#c7ffe1}
     .stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:16px}
     .stat{background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:16px;padding:12px 14px}
     .stat .k{color:var(--muted);font-size:12px}
-    .stat .v{font-weight:800;font-size:18px}
+    .stat .v{font-weight:900;font-size:18px}
     .hero-logo{display:flex;align-items:center;justify-content:center}
+    .logo-card{position:relative;isolation:isolate}
+    .glow{position:absolute;inset:-30px;z-index:-1;filter: blur(40px); background: radial-gradient(400px 220px at 50% 50%, rgba(242,201,76,.32), transparent 60%)}
     .logo{width:min(460px,88%);height:auto;display:block;border-radius:22px}
+
+    /* Marquee */
     .marquee{border-block:1px solid var(--border);background:rgba(255,255,255,.04);padding:10px 0;overflow:hidden}
     .marquee .row{display:flex;gap:32px;white-space:nowrap;animation:slide 26s linear infinite}
     @keyframes slide{to{transform:translateX(-50%)}}
+
+    /* Sections */
     section{padding:72px 0}
     .title{font-size:36px;font-weight:900;margin-bottom:10px}
     .sub{color:var(--muted);max-width:760px}
+    .pill{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--border);box-shadow:var(--ring);font-weight:800}
+
     .cards{margin-top:32px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
-    .card{background:var(--glass);border:1px solid var(--border);border-radius:22px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;min-height:156px}
+    .card{background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:22px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;min-height:156px}
     .card h3{margin:0 0 6px;font-size:18px}
+
+    /* Tokenomics */
     .tgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;margin-top:26px}
-    .t{background:var(--glass);border:1px solid var(--border);border-radius:18px;padding:20px;text-align:center;display:flex;flex-direction:column;justify-content:center;min-height:150px}
+    .t{background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:18px;padding:20px;text-align:center;display:flex;flex-direction:column;justify-content:center;min-height:150px}
     .t h4{font-size:28px;margin:4px 0 4px}
+
+    /* Footer */
     footer{border-top:1px solid var(--border);background:rgba(0,0,0,.45);backdrop-filter: blur(10px);padding:40px 0}
     .social{display:flex;gap:12px;margin-top:8px}
-    .social a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:12px;background:var(--glass);border:1px solid var(--border);color:var(--text);text-decoration:none}
+    .social a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid var(--border);color:var(--text);text-decoration:none}
     .social a:hover{background:rgba(255,255,255,.12)}
+
+    /* Responsive */
     @media (max-width:980px){.grid{grid-template-columns:1fr;gap:26px}.cards{grid-template-columns:1fr 1fr}.tgrid{grid-template-columns:1fr 1fr}}
     @media (max-width:640px){.cards{grid-template-columns:1fr}.tgrid{grid-template-columns:1fr}.nav a.link{display:none}}
-    .pill{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--border);box-shadow:var(--ring);font-weight:700}
   </style>
 </head>
 <body>
+  <!-- NAV -->
   <div class="nav">
     <div class="container nav-wrap">
       <a class="brand" href="#top">
-        <img src="assets/grouk-logo.png" alt="GROUK logo" width="40" height="40"/>
+        <img src="assets/grouk-logo.png" alt="GROUK logo" width="40" height="40" />
         <span class="title">$GROUK</span>
       </a>
       <div>
         <a class="link" href="#tokenomics">Tokenomics</a>
         <a class="link" href="#how">How to buy</a>
         <a class="link" href="#proofs">Proofs</a>
-        <a class="cta" href="https://pancakeswap.finance/" target="_blank">Buy on PancakeSwap →</a>
+        <a class="cta" href="https://pancakeswap.finance/" target="_blank" rel="noopener">Buy on PancakeSwap →</a>
       </div>
     </div>
   </div>
+
+  <!-- HERO -->
   <section id="top" class="hero">
     <div class="container grid">
       <div>
-        <span class="badge">Live soon • 0% Tax • 1B Supply</span>
-        <h1 class="h1">BNB Smart Chainain’s <span class="gradient">Monster Comeback</span></h1>
-        <p class="lead">$GROUK is a clean, transparent BEP‑20 token built for traders. <b>1,000,000,000</b> fixed supply. <b>70%</b> via bonding curve, <b>20%</b> to Raydium LP, <b>10%</b> team vested. No taxes. Community first.</p>
+        <span class="badge"><span style="width:8px;height:8px;border-radius:999px;background:#34D399;display:inline-block"></span> Launching on PancakeSwap • 0% Tax • 1B Supply</span>
+        <h1 class="h1">BNB Chain’s <span class="gradient">Monster Comeback</span></h1>
+        <p class="lead">$GROUK is a clean, transparent <b>BEP-20</b> token built for traders. <b>1,000,000,000</b> fixed supply. <b>70%</b> public sale, <b>20%</b> PancakeSwap LP, <b>10%</b> team vested. 0% tax.</p>
         <div class="actions">
-          <a class="cta" href="https://pancakeswap.finance/" target="_blank">Open PancakeSwap ↗</a>
+          <a class="cta" href="https://pancakeswap.finance/" target="_blank" rel="noopener">Open PancakeSwap ↗</a>
           <a class="btn" href="#proofs">View proofs</a>
           <button class="btn copy" id="copyCA">Copy Contract</button>
         </div>
         <div class="stats">
-          <div class="stat"><div class="k">Raise target</div><div class="v">10,000 SOL</div></div>
+          <div class="stat"><div class="k">Raise target</div><div class="v">TBA BNB</div></div>
           <div class="stat"><div class="k">Decimals</div><div class="v">18</div></div>
-          <div class="stat"><div class="k">Chain</div><div class="v">BNB Smart Chainart Chain</div></div>
+          <div class="stat"><div class="k">Chain</div><div class="v">BNB Smart Chain</div></div>
           <div class="stat"><div class="k">Ticker</div><div class="v">$GROUK</div></div>
         </div>
       </div>
       <div class="hero-logo">
-        <img class="logo" src="assets/grouk-logo.png" alt="GROUK" />
+        <div class="logo-card">
+          <div class="glow"></div>
+          <img class="logo" src="assets/grouk-logo.png" alt="GROUK" />
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- MARQUEE -->
   <div class="marquee">
     <div class="container">
       <div class="row">
-        <span>0% TAX</span><span>1B FIXED SUPPLY</span><span>RAYDIUM LP</span><span>VESTED TEAM</span><span>COMMUNITY FIRST</span>
-        <span>0% TAX</span><span>1B FIXED SUPPLY</span><span>RAYDIUM LP</span><span>VESTED TEAM</span><span>COMMUNITY FIRST</span>
+        <span>0% TAX</span><span>1B FIXED SUPPLY</span><span>PANCAKESWAP LP</span><span>VESTED TEAM</span><span>COMMUNITY FIRST</span>
+        <span>0% TAX</span><span>1B FIXED SUPPLY</span><span>PANCAKESWAP LP</span><span>VESTED TEAM</span><span>COMMUNITY FIRST</span>
       </div>
     </div>
   </div>
+
+  <!-- WHY -->
   <section>
     <div class="container">
       <div class="title">Why $GROUK?</div>
       <div class="sub">Fast finality, deep liquidity, and disciplined tokenomics. Designed to trade clean, grow strong, and stay transparent.</div>
       <div class="cards">
-        <div class="card"><h3>Built on BNB Smart Chain</h3><div class="sub">Low fees + high throughput — perfect rails for real traders.</div></div>
-        <div class="card"><h3>Fair Discovery</h3><div class="sub">70% supply through bonding curve; market sets the price.</div></div>
-        <div class="card"><h3>Strong Liquidity</h3><div class="sub">20% supply migrates to Raydium LP on completion.</div></div>
+        <div class="card"><h3>Built on BNB Chain</h3><div class="sub">Low fees + high throughput — perfect rails for real traders on BSC.</div></div>
+        <div class="card"><h3>Fair Discovery</h3><div class="sub">70% supply allocated to public sale; fair market discovery.</div></div>
+        <div class="card"><h3>Strong Liquidity</h3><div class="sub">20% supply seeded to PancakeSwap LP on launch.</div></div>
       </div>
     </div>
   </section>
+
+  <!-- TOKENOMICS -->
   <section id="tokenomics">
     <div class="container">
       <div class="title">Tokenomics</div>
-      <div class="sub"><span class="pill">Total supply <b>1,000,000,000</b> $GROUK • Target raise <b>10,000 SOL</b></span></div>
+      <div class="sub"><span class="pill">Total supply <b>1,000,000,000</b> • Target raise <b>TBA BNB</b></span></div>
       <div class="tgrid">
         <div class="t"><div>Allocation</div><h4>70%</h4><div>Public Sale (700M)</div></div>
         <div class="t"><div>Liquidity</div><h4>20%</h4><div>PancakeSwap LP (200M)</div></div>
-        <div class="t"><div>Team</div><h4>10%</h4><div>6‑month vest (100M)</div></div>
-        <div class="t"><div>Decimals</div><h4>9</h4><div>BEP‑20 standard</div></div>
+        <div class="t"><div>Team</div><h4>10%</h4><div>6-month vest (100M)</div></div>
+        <div class="t"><div>Decimals</div><h4>18</h4><div>BEP-20 standard</div></div>
       </div>
     </div>
   </section>
+
+  <!-- PROOFS -->
   <section id="proofs">
     <div class="container">
       <div class="title">Proofs & Links</div>
       <div class="cards">
         <div class="card"><h3>Mint Address</h3><div class="sub" id="mintAddr">TBA after launch</div></div>
-        <div class="card"><h3>Pancake Pair</h3><div class="sub"><a href="#" id="rayLink">Coming soon</a></div></div>
+        <div class="card"><h3>Pancake Pair</h3><div class="sub"><a href="#" id="pairLink">Coming soon</a></div></div>
         <div class="card"><h3>LP / Vesting</h3><div class="sub">Lock & vesting tx links will be posted here for transparency.</div></div>
       </div>
     </div>
   </section>
+
+  <!-- HOW TO BUY -->
   <section id="how">
     <div class="container">
       <div class="title">How to Buy</div>
       <div class="cards">
-        <div class="card"><h3>1) Get SOL</h3><div class="sub">Fund Phantom/Solflare with a little SOL for gas.</div></div>
-        <div class="card"><h3>2) Open Raydium</h3><div class="sub">Use the official GROUK pair when we post it here.</div></div>
+        <div class="card"><h3>1) Get BNB</h3><div class="sub">Fund MetaMask/Trust Wallet with a little BNB for gas.</div></div>
+        <div class="card"><h3>2) Open PancakeSwap</h3><div class="sub">Use the official GROUK pair when we post it here.</div></div>
         <div class="card"><h3>3) Verify</h3><div class="sub">Always verify the mint address before trading.</div></div>
       </div>
     </div>
   </section>
+
+  <!-- FOOTER -->
   <footer>
     <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
       <div>© <span id="yr"></span> GROUK • DYOR • Not financial advice</div>
       <div class="social">
-        <a href="https://x.com/TheCryptoIntelX" target="_blank">X</a>
-        <a href="https://t.me/GroukCommunity" target="_blank">TG</a>
+        <a href="https://x.com/TheCryptoIntelX" target="_blank" aria-label="X">X</a>
+        <a href="https://t.me/GroukCommunity" target="_blank" aria-label="Telegram">TG</a>
       </div>
     </div>
   </footer>
+
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
-    const CA = 'MintAddress_TBA';
-    document.getElementById('copyCA').addEventListener('click',()=>{
+    const CA = 'MINT_ADDRESS_TBA'; // replace after launch
+    document.getElementById('copyCA').addEventListener('click', ()=>{
       navigator.clipboard.writeText(CA).then(()=>{
         const b = document.getElementById('copyCA');
         const old = b.textContent; b.textContent = 'Copied!'; setTimeout(()=> b.textContent = old, 1200);
-      })
+      });
     });
   </script>
 </body>
 </html>
-
